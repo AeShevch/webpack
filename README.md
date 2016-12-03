@@ -8,11 +8,10 @@ Webpak говорит нам что может быть несколько то�
 Мы можем так же в конфиге вебпака проставить несколько точек вход-выход. Но при этом нам надо прописывать длинные пути к компонентам.
 На пример, конфиг вебпака лежит в папке /webpack от корня сайта
 ```js
-    entry: {
-       'dist/js/application.js': path.resolve(__dirname, '..', 'local', 'src', 'app.js')
-       },
-       output: {
+entry: {
+   'components/ab:news.list/templates/.default/script.js': path.resolve(__dirname, '..', 'local', 'components', 'ab:news.list', 'app', 'app.js')
+   },
+   output: {
        path: path.resolve(__dirname, '..', 'local'),
-       publicPath: '../local/',
        filename: "[name]"
-    }
+}
