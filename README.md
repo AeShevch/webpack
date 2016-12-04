@@ -21,3 +21,37 @@ entry: {
 Но таких точек entry может быть много и писать такие пути лень, да и ошибиться можно на раз.
 
 Сборка позволяет генерить такие entry, указав название компонента в виде ab:news.list и при необходимости еще шаблон, в который генерить собранный файл.
+
+Чтобы сгенерить файлы для компонента заходим в webpack.config.babel.js.
+
+После var BComponent = new Component();
+добавлем 
+
+```js
+BComponent.addComponent('help', {
+		name: 'ul:help'
+	});
+```	
+help - это произвольное назкание для конфига.
+ul:help это название нашего компонента.
+
+Далее нужно добавить сгенренные пути в основной конфиг с помощью:
+
+```js
+var configBase = BComponent.mergeConfig(['help']);
+```
+
+BComponent.addComponent возвращает обьект BComponent, так что при построении путей можно использовать цепочки методов.
+
+```js
+BComponent
+	.addComponent('help', {
+		name: 'ul:help'
+	})
+	.addComponent('help2', {
+		name: 'ul:help2'
+	});
+	
+var configBase = BComponent.mergeConfig(['help', help2]);	
+```
+
