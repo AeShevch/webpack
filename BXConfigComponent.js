@@ -76,8 +76,8 @@ class component {
 		}
 
 		let pathToComponentApp = '';
-		if(folder == 'bitrix'){
-			if(params.site == undefined){
+		if (folder == 'bitrix') {
+			if (params.site == undefined) {
 				params.site = '.default';
 			}
 
@@ -91,7 +91,7 @@ class component {
 				templateComponent
 			);
 			pathToComponentApp = pathToComponent;
-		} else if(params.site != undefined){
+		} else if (params.site != undefined) {
 			pathToComponent = path.join(
 				'local',
 				'templates',
@@ -119,10 +119,14 @@ class component {
 			);
 		}
 
+		let fileApp = path.resolve(mainFolder, pathToComponentApp, params.app);
+
 		this.entry.dev = {
-			[path.join(pathToComponent, params.build)]: path.resolve(mainFolder, pathToComponentApp, params.app)
+			[path.join(pathToComponent, params.build)]: fileApp
 		};
 		this.entry.prod = this.entry.dev;
+
+		// this.createFile(fileApp);
 
 		this.components[cName] = {
 			entry: this.entry.dev,
@@ -172,6 +176,27 @@ class component {
 		});
 
 		return MainConfig;
+	}
+
+	createFile(fileName) {
+		try {
+			let openSync = fs.openSync(fileName, "w+",);
+		} catch (err) {
+			try {
+				if (err.code == 'ENOENT') {
+					let dir = fileName.match(/^(.*)\/.*.js$/);
+					try {
+						let dirData = fs.mkdirSync(dir[1], '755');
+					} catch (e) {
+						console.info(e);
+					}
+
+					fs.writeSync(fileName, '');
+				}
+			} catch (errFile) {
+				console.warn('File ' + fileName + ' was not created by');
+			}
+		}
 	}
 }
 

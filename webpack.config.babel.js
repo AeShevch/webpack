@@ -8,9 +8,15 @@ var BComponent = new Component();
 BComponent.addComponent('help', {
 		name: 'ul:help'
 	})
+	.addComponent('test', {
+		name: 'ab:modal'
+	})
 ;
 
-var configBase = BComponent.mergeConfig(['help']);
+var configBase = BComponent.mergeConfig([
+	'help',
+	'test'
+]);
 
 config.push(configBase);
 
