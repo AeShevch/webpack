@@ -52,6 +52,6 @@ BComponent
 		name: 'ul:help2'
 	});
 	
-var configBase = BComponent.mergeConfig(['help', help2]);	
+var configBase = BComponent.mergeConfig(['help', 'help2']);	
 ```
 
