@@ -48,10 +48,10 @@ BComponent.addComponent возвращает обьект BComponent, так ч�
 ```js
 BComponent
 	.addComponent('help', {
-		name: 'ul:help'
+		name: 'ab:help'
 	})
 	.addComponent('help2', {
-		name: 'ul:help2'
+		name: 'ab:help2'
 	});
 	
 var configBase = BComponent.mergeConfig(['help', 'help2']);	
@@ -63,13 +63,13 @@ var configBase = BComponent.mergeConfig(['help', 'help2']);
 Компонент находится в local/components/ab/help
 ```js
 BComponent.addComponent('help', {
-		name: 'ul:help'
+		name: 'ab:help'
 	})
 ```
 Перед этим должен быть создан файл local/components/ab/help/app/app.js
 После выполнения комнды webpack, будет создан файл local/components/ab/help/templates/.default/script.js
 
-Если нам нужно сгенерить script.js в какой-то другой шаблон этого компонента, то в name: 'ul:help:myTemplate'
+Если нам нужно сгенерить script.js в какой-то другой шаблон этого компонента, то в name: 'ab:help:myTemplate'
 
 Компонент системный, кастомизируем только шаблон.
 В этом случае шаблон компонента будет лежать в local/templates/.default/components/bitrix/news.list/my_template
