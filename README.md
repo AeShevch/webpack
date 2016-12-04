@@ -91,3 +91,8 @@ BComponent.addComponent('news1', {
 Если у нас шаблон компонента дефолтный local/templates/site_template/components/bitrix/news.list/.default, 
 то в параметре name: 'bitrix:news.list:.default' .default можно не писать - name: 'bitrix:news.list'.
 
+Скприты
+-------------------------
+В это сборке установлены комнды:
+* npm run wb - дев-режим с запуском наблюдателя файлов
+* npm run build - сборка для продакшена с генерацией min - версий файлов и map-файлов к ним
