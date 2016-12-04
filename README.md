@@ -16,6 +16,7 @@ entry: {
    output: {
        path: path.resolve(__dirname, '..', 'local'),
        filename: "[name]"
+   }    
 }
 ```
 Но таких точек entry может быть много и писать такие пути лень, да и ошибиться можно на раз.
@@ -31,7 +32,8 @@ entry: {
 BComponent.addComponent('help', {
 		name: 'ul:help'
 	});
-```	
+```
+
 help - это произвольное назкание для конфига.
 ul:help это название нашего компонента.
 
@@ -54,4 +56,38 @@ BComponent
 	
 var configBase = BComponent.mergeConfig(['help', 'help2']);	
 ```
+
+Варианты настроек для addComponent
+-------------------------
+
+Компонент находится в local/components/ab/help
+```js
+BComponent.addComponent('help', {
+		name: 'ul:help'
+	})
+```
+Перед этим должен быть создан файл local/components/ab/help/app/app.js
+После выполнения комнды webpack, будет создан файл local/components/ab/help/templates/.default/script.js
+
+Если нам нужно сгенерить script.js в какой-то другой шаблон этого компонента, то в name: 'ul:help:myTemplate'
+
+Компонент системный, кастомизируем только шаблон.
+В этом случае шаблон компонента будет лежать в local/templates/.default/components/bitrix/news.list/my_template
+
+```js
+BComponent.addComponent('news1', {
+		name: 'bitrix:news.list:my_template'
+	})
+```
+
+Если шаблон лежит не в local/templates/.default, а, на пример, в local/templates/site_template/components/bitrix/news.list/my_template,
+то в параметры добавляется site: site_template
+```js
+BComponent.addComponent('news1', {
+		name: 'bitrix:news.list:my_template',
+		site: 'site_template'
+	})
+```
+Если у нас шаблон компонента дефолтный local/templates/site_template/components/bitrix/news.list/.default, 
+то в параметре name: 'bitrix:news.list:.default' .default можно не писать - name: 'bitrix:news.list'.
 
