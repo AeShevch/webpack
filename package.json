@@ -173,6 +173,7 @@
     }
   },
   "scripts": {
-    "wb": "webpack -c --display-error-details --progress"
+    "dev": "webpack -c --display-error-details --progress -w",
+    "build": "NODE_ENV=production webpack -c --display-error-details --progress"
   }
 }
