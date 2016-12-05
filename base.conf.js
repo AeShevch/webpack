@@ -216,4 +216,24 @@ const config = {
 	},
 };
 
+if(env != 'production' || env != 'prod'){
+	config.watch = true;
+	config.watchOptions = {
+		aggregateTimeout: 300
+	};
+}
+if(env == 'production' || env == 'prod'){
+	config.watch = false;
+	if(config.plugins === undefined){
+		config.plugins = [];
+	}
+	config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+		compress: {
+			warnings: false,
+			drop_console: true,
+			unsafe: true
+		}
+	}));
+}
+
 export default config;
