@@ -56,7 +56,7 @@ class component {
 		}
 
 		if (!is.propertyDefined(params, 'app')) {
-			params.app = path.join('app', 'app.js');
+			params.app = path.join('app', 'app');
 		} else {
 			let app = params.app;
 			params.app = '';
@@ -66,7 +66,7 @@ class component {
 		}
 
 		if (!is.propertyDefined(params, 'build')) {
-			params.build = path.join('script.js');
+			params.build = path.join('script');
 		} else {
 			let build = params.build;
 			params.build = '';
@@ -132,7 +132,7 @@ class component {
 			entry: this.entry.dev,
 			output: {
 				path: path.resolve(__dirname, '..'),
-				filename: "[name]"
+				filename: "[name].js"
 			}
 		};
 
@@ -141,7 +141,7 @@ class component {
 				entry: this.entry.prod,
 				output: {
 					path: path.resolve(mainFolder),
-					filename: "[name]"
+					filename: "[name].min.js"
 				}
 			};
 		}
