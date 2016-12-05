@@ -10,7 +10,7 @@
     "babel-runtime": "6.18.0",
     "bluebird": "3.4.6",
     "body-parser": "1.15.2",
-    "classnames": "2.2.5",
+    "classnames": "^2.2.5",
     "cookie-parser": "1.4.3",
     "core-js": "2.4.1",
     "express": "4.14.0",
@@ -23,6 +23,7 @@
     "history": "4.4.0",
     "is_js": "^0.9.0",
     "isomorphic-style-loader": "1.1.0",
+    "jquery": "^3.1.1",
     "jsonwebtoken": "7.1.9",
     "markdown-it": "8.1.0",
     "node-fetch": "1.6.3",
@@ -33,6 +34,8 @@
     "query-string": "4.2.3",
     "react": "15.4.0",
     "react-dom": "15.4.0",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0",
     "sequelize": "3.27.0",
     "source-map-support": "0.4.6",
     "sqlite3": "3.1.8",
@@ -174,6 +177,6 @@
   },
   "scripts": {
     "dev": "webpack -c --display-error-details --progress -w",
-    "build": "NODE_ENV=production webpack -c --display-error-details --progress"
+    "build": "NODE_ENV=production webpack -c -d --display-error-details --progress"
   }
 }
