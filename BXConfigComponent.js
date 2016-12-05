@@ -136,7 +136,7 @@ class component {
 			}
 		};
 
-		if (NODE_ENV == 'prod') {
+		if (NODE_ENV == 'production') {
 			this.components[cName] = {
 				entry: this.entry.prod,
 				output: {
