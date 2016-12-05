@@ -1,4 +1,5 @@
 import path from 'path';
+import env from './nodeEnv';
 
 const isDebug = !process.argv.includes('--release');
 const isVerbose = process.argv.includes('--verbose');
